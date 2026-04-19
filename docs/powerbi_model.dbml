@@ -1,0 +1,239 @@
+Project PowerBI_Model {
+  database_type: "PostgreSQL"
+  Note: '''
+  Analytical model for Power BI.
+
+  Products can be identified:
+  - reliably by recipe number,
+  - by name mapping,
+  - temporarily for products without stable historical identity.
+
+  Product serving state (heated / non-heated) is treated
+  as a property of the sales event and is stored in fact tables,
+  not in the product dimension.
+  '''
+}
+
+Table dim_date {
+  date date [pk]
+  year int [not null]
+  quarter int [not null]
+  month int [not null]
+  month_name varchar [not null]
+  week int [not null]
+  day int [not null]
+  day_of_week int [not null]
+  day_name varchar [not null]
+  is_weekend boolean [not null]
+  year_month varchar [not null]
+  year_week varchar [not null]
+}
+
+Table dim_spot {
+  spot_id int [pk]
+  spot_id_raw int [not null, unique]
+  spot_name varchar
+  address varchar
+  city varchar
+
+  Note: '''
+  Sales location dimension.
+
+  spot_id:
+  technical surrogate key used in relationships.
+
+  spot_id_raw:
+  original identifier from the source reporting system.
+  '''
+}
+
+Table dim_product {
+  product_id int [pk]
+  product_business_key varchar [not null, unique]
+  product_identity_type varchar [not null]
+  is_historical_stable boolean [not null, default: false]
+
+  recipe_number varchar
+
+  product_name varchar [not null]
+  normalized_product_name varchar
+  product_type varchar
+  source varchar
+
+  Note: '''
+  Product dimension.
+
+  product_id:
+  technical surrogate key used in relationships.
+
+  product_business_key:
+  stable or controlled logical key, e.g.:
+  RECIPE_12345
+  NAME_TOMATO_SOUP
+  TEMP_2026W12_DAILY_MEAL
+
+  product_identity_type:
+  method used to identify the product:
+  RECIPE / NAME_MATCH / TEMPORARY
+
+  is_historical_stable:
+  true = product is historically stable
+  false = technical or temporary product
+  '''
+
+  indexes {
+    product_business_key [unique]
+    recipe_number
+    normalized_product_name
+    product_identity_type
+    is_historical_stable
+  }
+}
+
+Table dim_sale_type {
+  sale_type_id int [pk]
+  sale_type_code varchar [not null, unique]
+  sale_type_name varchar [not null]
+  source_column varchar
+  sale_type_kind varchar
+  is_dynamic boolean [not null, default: false]
+  discount_pct int
+  is_active boolean [not null, default: true]
+
+  Note: '''
+  Sales type dimension.
+
+  sale_type_code:
+  stable logical code (e.g. FULL_PRICE, TGTG, DISCOUNT_30).
+  '''
+}
+
+Table dim_movement_type {
+  movement_type_id int [pk]
+  movement_type_column varchar [not null, unique]
+  movement_type_name varchar [not null]
+  movement_direction varchar [not null]
+  is_additional_detail boolean [not null, default: false]
+  parent_movement_type_column varchar
+
+  Note: '''
+  Inventory movement type dimension.
+
+  movement_direction:
+  IN / OUT
+
+  is_additional_detail:
+  true = detailed movement (part of a higher-level movement)
+  false = main movement
+  '''
+}
+
+Table fact_sales_quantity {
+  date date [not null]
+  spot_id int [not null]
+  product_id int [not null]
+  sale_type_id int [not null]
+  is_heated boolean [not null, default: false]
+  quantity int [not null, default: 0]
+
+  Note: '''
+  Grain: date + spot + product + sale type + serving state
+
+  Sales quantities broken down by sale types (e.g. discounts, TGTG).
+  '''
+
+  indexes {
+    (date, spot_id, product_id, sale_type_id, is_heated) [pk]
+    spot_id
+    product_id
+    sale_type_id
+  }
+}
+
+Table fact_sales_gross {
+  date date [not null]
+  spot_id int [not null]
+  product_id int [not null]
+  is_heated boolean [not null, default: false]
+  amount decimal(14,2) [not null, default: 0]
+
+  Note: '''
+  Grain: date + spot + product + serving state
+
+  Gross revenue is aggregated across all sale types
+  (no breakdown by sale_type).
+  '''
+
+  indexes {
+    (date, spot_id, product_id, is_heated) [pk]
+    spot_id
+    product_id
+  }
+}
+
+Table fact_productcost {
+  date date [not null]
+  product_id int [not null]
+  productcost decimal(14,4) [not null]
+
+  Note: '''
+  Grain: date + product
+
+  Stores point-in-time unit product cost values
+  on days when inventory receipts occurred.
+
+  Does not include automatic forward propagation of cost.
+  This is handled via a technical daily lookup
+  (productcost_daily_lookup in the pipeline).
+  '''
+
+  indexes {
+    (date, product_id) [pk]
+    product_id
+  }
+}
+
+Table fact_inventory_movement {
+  date date [not null]
+  spot_id int [not null]
+  product_id int [not null]
+  movement_type_id int [not null]
+  quantity decimal(12,2) [not null, default: 0]
+  cost decimal(14,2) [not null, default: 0]
+
+  Note: '''
+  Grain: date + spot + product + movement type
+
+  Cost calculation:
+  - for "Przyjęto" (receipts): directly from source data,
+  - for other movements: quantity * productcost (daily lookup).
+
+  If productcost is missing:
+  - cost is set to 0,
+  - a warning is generated (data quality issue).
+  '''
+
+  indexes {
+    (date, spot_id, product_id, movement_type_id) [pk]
+    spot_id
+    product_id
+    movement_type_id
+  }
+}
+
+Ref: fact_sales_quantity.date > dim_date.date
+Ref: fact_sales_quantity.spot_id > dim_spot.spot_id
+Ref: fact_sales_quantity.product_id > dim_product.product_id
+Ref: fact_sales_quantity.sale_type_id > dim_sale_type.sale_type_id
+
+Ref: fact_sales_gross.date > dim_date.date
+Ref: fact_sales_gross.spot_id > dim_spot.spot_id
+Ref: fact_sales_gross.product_id > dim_product.product_id
+
+Ref: fact_productcost.date > dim_date.date
+Ref: fact_productcost.product_id > dim_product.product_id
+
+Ref: fact_inventory_movement.date > dim_date.date
+Ref: fact_inventory_movement.spot_id > dim_spot.spot_id
+Ref: fact_inventory_movement.product_id > dim_product.product_id
+Ref: fact_inventory_movement.movement_type_id > dim_movement_type.movement_type_id

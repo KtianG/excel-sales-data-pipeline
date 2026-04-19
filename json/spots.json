@@ -1,0 +1,146 @@
+[
+  {
+    "spot_id_raw": 1,
+    "spot_name": "Punkt Alfa",
+    "city": "Portowo",
+    "street": "ul. Jasna 32"
+  },
+  {
+    "spot_id_raw": 2,
+    "spot_name": "Punkt Beta",
+    "city": "Riverton",
+    "street": "ul. Klonowa 8"
+  },
+  {
+    "spot_id_raw": 3,
+    "spot_name": "Punkt Gamma",
+    "city": "Portowo",
+    "street": "ul. Spacerowa 33"
+  },
+  {
+    "spot_id_raw": 4,
+    "spot_name": "Punkt Delta",
+    "city": "Portowo",
+    "street": "ul. Wiosenna 54"
+  },
+  {
+    "spot_id_raw": 5,
+    "spot_name": "Punkt Epsilon",
+    "city": "Riverton",
+    "street": "ul. Leśna 1"
+  },
+  {
+    "spot_id_raw": 6,
+    "spot_name": "Punkt Zeta",
+    "city": "Riverton",
+    "street": "ul. Morska 21"
+  },
+  {
+    "spot_id_raw": 7,
+    "spot_name": "Punkt Eta",
+    "city": "Riverton",
+    "street": "ul. Polna 12"
+  },
+  {
+    "spot_id_raw": 10,
+    "spot_name": "Punkt Theta",
+    "city": "Portowo",
+    "street": "ul. Cedrowa 35"
+  },
+  {
+    "spot_id_raw": 11,
+    "spot_name": "Punkt Iota",
+    "city": "Riverton",
+    "street": "ul. Słoneczna 26"
+  },
+  {
+    "spot_id_raw": 12,
+    "spot_name": "Punkt Kappa",
+    "city": "Portowo",
+    "street": "ul. Lipowa 3"
+  },
+  {
+    "spot_id_raw": 13,
+    "spot_name": "Punkt Lambda",
+    "city": "Nowe Miasto",
+    "street": "ul. Bukowa 1"
+  },
+  {
+    "spot_id_raw": 15,
+    "spot_name": "Punkt Mu",
+    "city": "Nowe Miasto",
+    "street": "ul. Tęczowa 16"
+  },
+  {
+    "spot_id_raw": 16,
+    "spot_name": "Punkt Nu",
+    "city": "Portowo",
+    "street": "ul. Zielona 1"
+  },
+  {
+    "spot_id_raw": 18,
+    "spot_name": "Punkt Xi",
+    "city": "Kamieniec",
+    "street": "ul. Ogrodowa 18"
+  },
+  {
+    "spot_id_raw": 19,
+    "spot_name": "Punkt Omikron",
+    "city": "Riverton",
+    "street": "ul. Brzozowa 102"
+  },
+  {
+    "spot_id_raw": 20,
+    "spot_name": "Punkt Pi",
+    "city": "Riverton",
+    "street": "ul. Przemysłowa 1"
+  },
+  {
+    "spot_id_raw": 21,
+    "spot_name": "Punkt Rho",
+    "city": "Portowo",
+    "street": "ul. Nadmorska 69"
+  },
+  {
+    "spot_id_raw": 22,
+    "spot_name": "Punkt Sigma",
+    "city": "Nowe Miasto",
+    "street": "ul. Cicha 11"
+  },
+  {
+    "spot_id_raw": 24,
+    "spot_name": "Punkt Tau",
+    "city": "Nowe Miasto",
+    "street": "ul. Kameralna 2"
+  },
+  {
+    "spot_id_raw": 25,
+    "spot_name": "Punkt Upsilon",
+    "city": "Górniki",
+    "street": "ul. Rycerska 2"
+  },
+  {
+    "spot_id_raw": 26,
+    "spot_name": "Punkt Phi",
+    "city": "Kamieniec",
+    "street": "ul. Królewska 217"
+  },
+  {
+    "spot_id_raw": 27,
+    "spot_name": "Punkt Chi",
+    "city": "Wielin",
+    "street": "ul. Północna 7"
+  },
+  {
+    "spot_id_raw": 28,
+    "spot_name": "Punkt Psi",
+    "city": "Nowe Miasto",
+    "street": "ul. Rubinowa 19"
+  },
+  {
+    "spot_id_raw": 29,
+    "spot_name": "Punkt Omega",
+    "city": "Nowe Miasto",
+    "street": "ul. Srebrna 3"
+  }
+]

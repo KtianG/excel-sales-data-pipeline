@@ -1,0 +1,25 @@
+﻿spot_id,spot_id_raw,spot_name,address,city
+1,1,Punkt Alfa,ul. Jasna 32,Portowo
+2,2,Punkt Beta,ul. Klonowa 8,Riverton
+3,3,Punkt Gamma,ul. Spacerowa 33,Portowo
+4,4,Punkt Delta,ul. Wiosenna 54,Portowo
+5,5,Punkt Epsilon,ul. Leśna 1,Riverton
+6,6,Punkt Zeta,ul. Morska 21,Riverton
+7,7,Punkt Eta,ul. Polna 12,Riverton
+8,10,Punkt Theta,ul. Cedrowa 35,Portowo
+9,11,Punkt Iota,ul. Słoneczna 26,Riverton
+10,12,Punkt Kappa,ul. Lipowa 3,Portowo
+11,13,Punkt Lambda,ul. Bukowa 1,Nowe Miasto
+12,15,Punkt Mu,ul. Tęczowa 16,Nowe Miasto
+13,16,Punkt Nu,ul. Zielona 1,Portowo
+14,18,Punkt Xi,ul. Ogrodowa 18,Kamieniec
+15,19,Punkt Omikron,ul. Brzozowa 102,Riverton
+16,20,Punkt Pi,ul. Przemysłowa 1,Riverton
+17,21,Punkt Rho,ul. Nadmorska 69,Portowo
+18,22,Punkt Sigma,ul. Cicha 11,Nowe Miasto
+19,24,Punkt Tau,ul. Kameralna 2,Nowe Miasto
+20,25,Punkt Upsilon,ul. Rycerska 2,Górniki
+21,26,Punkt Phi,ul. Królewska 217,Kamieniec
+22,27,Punkt Chi,ul. Północna 7,Wielin
+23,28,Punkt Psi,ul. Rubinowa 19,Nowe Miasto
+24,29,Punkt Omega,ul. Srebrna 3,Nowe Miasto

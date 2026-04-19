@@ -1,0 +1,33 @@
+{
+  "fixed_sale_types": [
+    {
+      "source_column": "Sprzedaż",
+      "sale_type_code": "FULL_PRICE",
+      "sale_type_name": "Sprzedaż pełnopłatna"
+    },
+    {
+      "source_column": "Paczki 1",
+      "sale_type_code": "TGTG",
+      "sale_type_name": "Paczki"
+    },
+    {
+      "source_column": "Paczki 2",
+      "sale_type_code": "TGTG",
+      "sale_type_name": "Paczki"
+    }
+  ],
+  "grouped_columns": [
+    {
+      "target_column": "Paczki",
+      "source_columns": ["Paczki 1", "Paczki 2"]
+    }
+  ],
+  "control_columns": [
+    {
+      "source_column": "Suma",
+      "control_code": "TOTAL_SALES_QUANTITY",
+      "description": "Kontrolna suma wszystkich typów sprzedaży"
+    }
+  ],
+  "validation_exclusions": []
+}

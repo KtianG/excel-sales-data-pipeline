@@ -1,0 +1,30 @@
+[
+  {
+    "movement_type_column": "Przyjęto",
+    "movement_type_name": "Przyjęto",
+    "movement_direction": "IN",
+    "is_additional_detail": false,
+    "parent_movement_type_column": null
+  },
+  {
+    "movement_type_column": "Zwrócono",
+    "movement_type_name": "Zwrócono",
+    "movement_direction": "OUT",
+    "is_additional_detail": false,
+    "parent_movement_type_column": null
+  },
+  {
+    "movement_type_column": "Uszkodzenia - Przyjęcie",
+    "movement_type_name": "Przyjęto - Uszkodzenia",
+    "movement_direction": "IN",
+    "is_additional_detail": true,
+    "parent_movement_type_column": "Przyjęto"
+  },
+  {
+    "movement_type_column": "Uszkodzenia - Zwrot",
+    "movement_type_name": "Zwrócono - Uszkodzenia",
+    "movement_direction": "OUT",
+    "is_additional_detail": true,
+    "parent_movement_type_column": "Zwrócono"
+  }
+]

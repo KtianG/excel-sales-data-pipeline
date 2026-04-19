@@ -1,0 +1,5 @@
+﻿movement_type_id,movement_type_column,movement_type_name,movement_direction,is_additional_detail,parent_movement_type_column
+1,Przyjęto,Przyjęto,IN,False,
+2,Zwrócono,Zwrócono,OUT,False,
+3,Uszkodzenia - Przyjęcie,Przyjęto - Uszkodzenia,IN,True,Przyjęto
+4,Uszkodzenia - Zwrot,Zwrócono - Uszkodzenia,OUT,True,Zwrócono

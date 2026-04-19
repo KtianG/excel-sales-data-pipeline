@@ -1,0 +1,5 @@
+﻿sale_type_id,sale_type_code,sale_type_name,source_column,sale_type_kind,is_dynamic,discount_pct,is_active
+1,FULL_PRICE,Sprzedaż pełnopłatna,Sprzedaż,FIXED,False,,True
+2,TGTG,Paczki,Paczki,FIXED,False,,True
+3,DISCOUNT_20,20%,20%,DISCOUNT,True,20,True
+4,DISCOUNT_30,30%,30%,DISCOUNT,True,30,True

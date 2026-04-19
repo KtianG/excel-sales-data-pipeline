@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "create-database"
+version = "0.1.0"
+description = "Pipeline for transforming daily Excel reports into analytics-ready CSV tables for Power BI."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0,<3.0",
+    "openpyxl>=3.1,<4.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+create-database = "create_database.run:main"
