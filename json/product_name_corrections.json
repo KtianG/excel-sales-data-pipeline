@@ -1,3 +1,9 @@
 {
-  "name_corrections": {}
+  "name_corrections": {
+    "Kat231-2": {
+      "canonical_name": "CAT23-1-2",
+      "canonical_group": "CAT23",
+      "action": "replace"
+    }
+  }
 }
