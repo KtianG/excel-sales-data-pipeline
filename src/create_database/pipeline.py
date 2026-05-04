@@ -150,10 +150,11 @@ def run_pipeline() -> None:
     log.info("Starting dim_product build...")
 
     dim_product_df = build_dim_product(
-        staging_df=staging_df,
-        product_identity_df=product_identity_df,
-        source_rules_json_path=JSON_DIR / "product_source_rules.json",
-    )
+    staging_df=staging_df,
+    product_identity_df=product_identity_df,
+    source_rules_json_path=JSON_DIR / "product_source_rules.json",
+    product_type_mapping_json_path=JSON_DIR / "product_type_mapping.json",
+)
 
     log.info("dim_product build finished.")
     log.info(

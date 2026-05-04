@@ -1,0 +1,38 @@
+{
+  "product_type_mapping": {
+    "CAT01": "Main Dishes",
+    "CAT02": "Soups",
+    "CAT03": "Salads & Cold Meals",
+    "CAT04": "Salads & Cold Meals",
+
+    "CAT05": "Breakfast & Light Meals",
+    "CAT06": "Pasta & Grain Dishes",
+
+    "CAT07": "Meat Dishes",
+    "CAT10": "Meat Dishes",
+
+    "CAT08": "Vegetarian Dishes",
+    "CAT11": "Vegetarian Dishes",
+
+    "CAT09": "Side Dishes",
+    "CAT12": "Side Dishes",
+
+    "CAT13": "Snacks",
+    "CAT14": "Bakery & Pastries",
+    "CAT15": "Desserts",
+    "CAT16": "Sweet Snacks",
+
+    "CAT17": "Beverages",
+    "CAT18": "Cold Drinks",
+    "CAT19": "Hot Drinks",
+    "CAT20": "Hot Drinks",
+
+    "CAT21": "Special Offers",
+    "CAT22": "Special Offers",
+    "CAT23": "Special Offers",
+
+    "CAT24": "Seasonal Items",
+
+    "DODATEK": "Other"
+  }
+}

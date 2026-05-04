@@ -39,6 +39,7 @@ def build_dim_product(
     staging_df: pd.DataFrame,
     product_identity_df: pd.DataFrame,
     source_rules_json_path: Path,
+    product_type_mapping_json_path: Path,
 ) -> pd.DataFrame:
     """
     Build dim_product from staging data and product identity mapping.
@@ -51,20 +52,25 @@ def build_dim_product(
     - recipe_number
     - product_name
     - normalized_product_name
-    - product_type
+    - product_type (dashboard-friendly mapped category)
     - source
     - product_alternative_names
     """
-
     if staging_df.empty:
         raise DataValidationError("dim_product input staging_df is empty.")
-    
+
     _validate_dim_product_inputs(staging_df, product_identity_df)
 
     source_rules_config = load_json(source_rules_json_path)
     source_rules = _validate_and_prepare_source_rules(
         source_rules_config,
         source_rules_json_path,
+    )
+
+    product_type_mapping_config = load_json(product_type_mapping_json_path)
+    product_type_mapping = _validate_and_extract_product_type_mapping(
+        product_type_mapping_config,
+        product_type_mapping_json_path,
     )
 
     merged_df = staging_df.merge(
@@ -97,10 +103,16 @@ def build_dim_product(
         recipe_number = _get_first_non_null(group["recipe_number_clean"])
         product_name = _select_longest_name(group["product_name_selected"])
         normalized_product_name = _normalize_product_name(product_name)
-        product_type = _resolve_product_type(
+
+        product_type_raw = _resolve_product_type(
             group["product_group_final"],
             product_business_key=product_business_key,
         )
+        product_type = _map_product_type(
+            product_type_raw,
+            product_type_mapping,
+        )
+
         source = _resolve_product_source(
             group=group,
             source_rules=source_rules,
@@ -144,6 +156,7 @@ def build_dim_product(
         "product_business_key",
         kind="mergesort",
     ).reset_index(drop=True)
+
     dim_df.insert(0, "product_id", range(1, len(dim_df) + 1))
 
     dim_df = dim_df.loc[
@@ -309,6 +322,65 @@ def _validate_and_prepare_source_rules(
     }
 
 
+def _validate_and_extract_product_type_mapping(
+    config: object,
+    product_type_mapping_json_path: Path,
+) -> dict[str, str]:
+    """
+    Validate product_type_mapping.json and return technical-to-business category mapping.
+    """
+    if not isinstance(config, dict):
+        raise ConfigurationError(
+            f"product_type_mapping.json must contain a JSON object: {product_type_mapping_json_path}"
+        )
+
+    if "product_type_mapping" not in config:
+        raise ConfigurationError(
+            "product_type_mapping.json is missing required key: 'product_type_mapping'"
+        )
+
+    mapping = config["product_type_mapping"]
+
+    if not isinstance(mapping, dict):
+        raise ConfigurationError("'product_type_mapping' must be an object/dictionary")
+
+    normalized_mapping: dict[str, str] = {}
+
+    for source_value, target_value in mapping.items():
+        if not isinstance(source_value, str) or not source_value.strip():
+            raise ConfigurationError(
+                "product_type_mapping keys must be non-empty strings"
+            )
+
+        if not isinstance(target_value, str) or not target_value.strip():
+            raise ConfigurationError(
+                f"product_type_mapping value for '{source_value}' must be a non-empty string"
+            )
+
+        normalized_mapping[source_value.strip()] = target_value.strip()
+
+    return normalized_mapping
+
+
+def _map_product_type(
+    product_type_raw: object,
+    product_type_mapping: dict[str, str],
+) -> object:
+    """
+    Map technical product type into dashboard-friendly category name.
+    If no mapping exists, keep the original value.
+    """
+    if pd.isna(product_type_raw):
+        return pd.NA
+
+    product_type_text = str(product_type_raw).strip()
+
+    if not product_type_text:
+        return pd.NA
+
+    return product_type_mapping.get(product_type_text, product_type_text)
+
+
 def _get_first_non_null(series: pd.Series) -> object:
     """
     Return first non-null value or pd.NA.
@@ -361,7 +433,7 @@ def _resolve_product_type(
     product_business_key: str,
 ) -> object:
     """
-    Resolve product_type from product_group_final.
+    Resolve technical product_type from product_group_final.
 
     Rules:
     - normally one non-null value is expected

@@ -188,7 +188,7 @@ create_database
 - `staging/` – data cleaning and validation
 - `dimensions/` – dimension tables
 - `facts/` – fact tables
-- `mappings/` – business logic (JSON)
+- `json/` – business logic (JSON)
 - `orchestration/` – pipeline execution
 - `utils/` – helper functions
 

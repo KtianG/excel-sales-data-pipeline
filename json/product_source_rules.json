@@ -1,21 +1,21 @@
 {
-  "default_source": "Pozostałe",
+  "default_source": "Other",
   "rules": [
     {
-      "rule_name": "menu_stale_if_recipe_exists",
+      "rule_name": "internal_if_recipe_exists",
       "priority": 1,
       "conditions": {
         "has_recipe_number": true
       },
-      "source": "INSIDE"
+      "source": "Internal Production"
     },
     {
-      "rule_name": "nadprodukcja_if_code_contains_keywords",
+      "rule_name": "third_party_if_code_contains_keywords",
       "priority": 2,
       "conditions": {
         "product_code_contains": ["-X-"]
       },
-      "source": "OUTSIDE"
+      "source": "Third-Party Supplier"
     }
   ]
 }
