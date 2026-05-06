@@ -1,0 +1,120 @@
+{
+  "name": "Sales Dashboard Theme",
+  "dataColors": [
+    "#2F80ED",
+    "#27AE60",
+    "#F2C94C",
+    "#EB5757",
+    "#6FCF97",
+    "#56CCF2",
+    "#9CA3AF"
+  ],
+  "background": "#EAF3FB",
+  "foreground": "#1F2A37",
+  "tableAccent": "#2F80ED",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "fontFamily": [
+          {
+            "fontFamily": "Segoe UI"
+          }
+        ],
+        "color": [
+          {
+            "solid": {
+              "color": "#1F2A37"
+            }
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "values": [
+          {
+            "backColor": { "solid": { "color": "#FFFFFF" } },
+            "fontColor": { "solid": { "color": "#1F2A37" } }
+          }
+        ],
+        "columnHeaders": [
+          {
+            "backColor": { "solid": { "color": "#FFFFFF" } },
+            "fontColor": { "solid": { "color": "#1F2A37" } }
+          }
+        ],
+        "grid": [
+          {
+            "gridVertical": false,
+            "gridHorizontal": true,
+            "outlineColor": { "solid": { "color": "#D1D5DB" } }
+          }
+        ]
+      }
+    },
+    "matrix": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "values": [
+          {
+            "backColor": { "solid": { "color": "#FFFFFF" } },
+            "fontColor": { "solid": { "color": "#1F2A37" } }
+          }
+        ],
+        "columnHeaders": [
+          {
+            "backColor": { "solid": { "color": "#FFFFFF" } },
+            "fontColor": { "solid": { "color": "#1F2A37" } }
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#EAF3FB"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

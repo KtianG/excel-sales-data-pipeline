@@ -1,145 +1,145 @@
 [
   {
     "spot_id_raw": 1,
-    "spot_name": "Punkt Alfa",
+    "spot_name": "Location Alfa",
     "city": "Portowo",
     "street": "ul. Jasna 32"
   },
   {
     "spot_id_raw": 2,
-    "spot_name": "Punkt Beta",
+    "spot_name": "Location Beta",
     "city": "Riverton",
     "street": "ul. Klonowa 8"
   },
   {
     "spot_id_raw": 3,
-    "spot_name": "Punkt Gamma",
+    "spot_name": "Location Gamma",
     "city": "Portowo",
     "street": "ul. Spacerowa 33"
   },
   {
     "spot_id_raw": 4,
-    "spot_name": "Punkt Delta",
+    "spot_name": "Location Delta",
     "city": "Portowo",
     "street": "ul. Wiosenna 54"
   },
   {
     "spot_id_raw": 5,
-    "spot_name": "Punkt Epsilon",
+    "spot_name": "Location Epsilon",
     "city": "Riverton",
     "street": "ul. Leśna 1"
   },
   {
     "spot_id_raw": 6,
-    "spot_name": "Punkt Zeta",
+    "spot_name": "Location Zeta",
     "city": "Riverton",
     "street": "ul. Morska 21"
   },
   {
     "spot_id_raw": 7,
-    "spot_name": "Punkt Eta",
+    "spot_name": "Location Eta",
     "city": "Riverton",
     "street": "ul. Polna 12"
   },
   {
     "spot_id_raw": 10,
-    "spot_name": "Punkt Theta",
+    "spot_name": "Location Theta",
     "city": "Portowo",
     "street": "ul. Cedrowa 35"
   },
   {
     "spot_id_raw": 11,
-    "spot_name": "Punkt Iota",
+    "spot_name": "Location Iota",
     "city": "Riverton",
     "street": "ul. Słoneczna 26"
   },
   {
     "spot_id_raw": 12,
-    "spot_name": "Punkt Kappa",
+    "spot_name": "Location Kappa",
     "city": "Portowo",
     "street": "ul. Lipowa 3"
   },
   {
     "spot_id_raw": 13,
-    "spot_name": "Punkt Lambda",
+    "spot_name": "Location Lambda",
     "city": "Nowe Miasto",
     "street": "ul. Bukowa 1"
   },
   {
     "spot_id_raw": 15,
-    "spot_name": "Punkt Mu",
+    "spot_name": "Location Mu",
     "city": "Nowe Miasto",
     "street": "ul. Tęczowa 16"
   },
   {
     "spot_id_raw": 16,
-    "spot_name": "Punkt Nu",
+    "spot_name": "Location Nu",
     "city": "Portowo",
     "street": "ul. Zielona 1"
   },
   {
     "spot_id_raw": 18,
-    "spot_name": "Punkt Xi",
+    "spot_name": "Location Xi",
     "city": "Kamieniec",
     "street": "ul. Ogrodowa 18"
   },
   {
     "spot_id_raw": 19,
-    "spot_name": "Punkt Omikron",
+    "spot_name": "Location Omikron",
     "city": "Riverton",
     "street": "ul. Brzozowa 102"
   },
   {
     "spot_id_raw": 20,
-    "spot_name": "Punkt Pi",
+    "spot_name": "Location Pi",
     "city": "Riverton",
     "street": "ul. Przemysłowa 1"
   },
   {
     "spot_id_raw": 21,
-    "spot_name": "Punkt Rho",
+    "spot_name": "Location Rho",
     "city": "Portowo",
     "street": "ul. Nadmorska 69"
   },
   {
     "spot_id_raw": 22,
-    "spot_name": "Punkt Sigma",
+    "spot_name": "Location Sigma",
     "city": "Nowe Miasto",
     "street": "ul. Cicha 11"
   },
   {
     "spot_id_raw": 24,
-    "spot_name": "Punkt Tau",
+    "spot_name": "Location Tau",
     "city": "Nowe Miasto",
     "street": "ul. Kameralna 2"
   },
   {
     "spot_id_raw": 25,
-    "spot_name": "Punkt Upsilon",
+    "spot_name": "Location Upsilon",
     "city": "Górniki",
     "street": "ul. Rycerska 2"
   },
   {
     "spot_id_raw": 26,
-    "spot_name": "Punkt Phi",
+    "spot_name": "Location Phi",
     "city": "Kamieniec",
     "street": "ul. Królewska 217"
   },
   {
     "spot_id_raw": 27,
-    "spot_name": "Punkt Chi",
+    "spot_name": "Location Chi",
     "city": "Wielin",
     "street": "ul. Północna 7"
   },
   {
     "spot_id_raw": 28,
-    "spot_name": "Punkt Psi",
+    "spot_name": "Location Psi",
     "city": "Nowe Miasto",
     "street": "ul. Rubinowa 19"
   },
   {
     "spot_id_raw": 29,
-    "spot_name": "Punkt Omega",
+    "spot_name": "Location Omega",
     "city": "Nowe Miasto",
     "street": "ul. Srebrna 3"
   }
