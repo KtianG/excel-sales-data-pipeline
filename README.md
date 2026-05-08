@@ -22,6 +22,8 @@ Example dashboard built on top of the analytical model:
 
 ![Power BI Dashboard](docs/powerbi_dashboard.png)
 
+Live dashboard: [Open interactive Power BI report](https://app.powerbi.com/view?r=eyJrIjoiZDY5NGMzMmEtN2U3NS00ZjkxLTlkMmYtMmEyMTNmM2MwNDhjIiwidCI6IjM4MmY1YTE3LWJlNzgtNDUwZS1iYzc0LTFmNDVkNjgyYWU0ZCJ9)
+
 The dashboard demonstrates:
 
 - operational sales monitoring

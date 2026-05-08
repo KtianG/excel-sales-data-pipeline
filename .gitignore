@@ -53,6 +53,7 @@ temp/
 # Power BI (ONLY this excluded)
 # =========================
 preview.pbix
+*.pbix
 
 # =========================
 # Secrets / local config
