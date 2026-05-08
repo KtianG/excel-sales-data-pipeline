@@ -54,6 +54,7 @@ temp/
 # =========================
 preview.pbix
 *.pbix
+.pbix
 
 # =========================
 # Secrets / local config
